@@ -48,11 +48,43 @@ Kemudian, karena terdapat beberapa web yang harus di-deploy, buatlah subdomain p
 ## Soal-5
 Buat juga reverse domain untuk domain utama. (Abimanyu saja yang direverse)
 
+### Explanation
+- Make reverse file in yudhistira with this syntax :
+  ``` nano /etc/bind/jarkom/3.232.192.in-addr.arpa   ```
+- Restart server with this syntax : ``` service bind9 restart ```
+- Ping reverse domain in client Nakula and Sadewa with this syntax :
+  ``` host -t PTR 192.232.3.3  ```
+
 ## Soal-6
 Agar dapat tetap dihubungi ketika DNS Server Yudhistira bermasalah, buat juga Werkudara sebagai DNS Slave untuk domain utama.
+
+### Explanation
+- Open local configuration in werkudara with this syntax : ``` nano /etc/bind/named.conf.local  ```
+- Make werkudara as the DNS Slave domain
+- Save the file
+- Restart server with this syntax : ``` service bind9 restart ```
+- Stop the bind9 in yudhistira with this syntax : ``` service bind9 stop ```
+- Ping abimanyu.I08.com in client Nakula and Sadewa
 
 ## Soal-7
 Seperti yang kita tahu karena banyak sekali informasi yang harus diterima, buatlah subdomain khusus untuk perang yaitu baratayuda.abimanyu.yyy.com dengan alias www.baratayuda.abimanyu.yyy.com yang didelegasikan dari Yudhistira ke Werkudara dengan IP menuju ke Abimanyu dalam folder Baratayuda.
 
+### Explanation
+- Open the configuration options in Yudhistira with this syntax : ``` nano /etc/bind/named.conf.options ```
+- Add allow query and comment ``` dnssec-validation auto; ```
+- Restart server with this syntax : ``` service bind9 restart ```
+- Open the configuration options in werkudara with this syntax : ``` nano /etc/bind/named.conf.options ```
+- Add allow query and comment ``` dnssec-validation auto; ```
+- Restart server with this syntax : ``` service bind9 restart ```
+- Make folder baratayuda in werkudara with this syntax : ``` mkdir /etc/bind/baratayuda ```
+- Make file baratayuda.abimanyu.I08.com in wekudara with this syntax :
+  ``` nano /etc/bind/baratayuda/baratayuda.abimanyu.I08.com  ```
+- Restart server with this syntax : ``` service bind9 restart ```
+- Ping www.baratayuda.abimanyu.I08.com in client Nakula and Sadewa
+
 ## Soal-8
 Untuk informasi yang lebih spesifik mengenai Ranjapan Baratayuda, buatlah subdomain melalui Werkudara dengan akses rjp.baratayuda.abimanyu.yyy.com dengan alias www.rjp.baratayuda.abimanyu.yyy.com yang mengarah ke Abimanyu.
+
+### Explanation
+- Add the following subdomain in baratayuda.abimanyu.I08.com in werkudara
+- Ping www.rjp.baratayuda.abimanyu.I08.com in client Nakula and Sadewa
