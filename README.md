@@ -5,6 +5,105 @@ Nama Anggota | NRP
 Mardhatillah Shevy Ananti | 5025211070
 Kirana Alivia Enrico | 5025211190
 
+## Node Configuration
+- **Router** 
+  - Pandudewanata
+```
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+	address 192.232.1.1
+	netmask 255.255.255.0
+
+auto eth2
+iface eth2 inet static
+	address 192.232.2.1
+	netmask 255.255.255.0
+
+auto eth3
+iface eth3 inet static
+	address 192.232.3.1
+	netmask 255.255.255.0
+
+```
+
+**Switch 1**
+- **Client**
+  - Nakula
+  ```
+  auto eth0
+  iface eth0 inet static
+  	address 192.232.2.2
+  	netmask 255.255.255.0
+  	gateway 192.232.2.1
+  ```
+  - Sadewa
+  ```
+  auto eth0
+  iface eth0 inet static
+  	address 192.232.2.3
+  	netmask 255.255.255.0
+  	gateway 192.232.2.1
+  ```
+
+- DNS
+  - Yudhistira (Master)
+  ```
+  auto eth0
+  iface eth0 inet static
+  	address 192.232.1.3
+  	netmask 255.255.255.0
+  	gateway 192.232.1.1
+  ```
+  - Werkudara (Slave)
+  ```
+  auto eth0
+  iface eth0 inet static
+  	address 192.232.1.2
+  	netmask 255.255.255.0
+  	gateway 192.232.1.1
+  ```
+
+  **Switch 2**
+- **Load Balancer**
+  - Arjuna
+  ```
+  auto eth0
+  iface eth0 inet static
+  	address 192.232.3.5
+  	netmask 255.255.255.0
+  	gateway 192.232.3.1
+  ```
+
+**Switch 3**
+- **Web Server**
+  - Prabukusuma
+  ```
+  auto eth0
+  iface eth0 inet static
+  	address 192.232.3.2
+  	netmask 255.255.255.0
+  	gateway 192.232.3.1
+  ```
+  - Abimanyu
+  ```
+  auto eth0
+  iface eth0 inet static
+  	address 192.232.3.3
+  	netmask 255.255.255.0
+  	gateway 192.232.3.1
+  ```
+  - Wisanggeni
+  ```
+  auto eth0
+  iface eth0 inet static
+  	address 192.232.3.4
+  	netmask 255.255.255.0
+  	gateway 192.232.3.1
+  ```
+
 ## Soal-1
 Yudhistira akan digunakan sebagai DNS Master, Werkudara sebagai DNS Slave, Arjuna merupakan Load Balancer yang terdiri dari beberapa Web Server yaitu Prabakusuma, Abimanyu, dan Wisanggeni. Buatlah topologi.
 
