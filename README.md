@@ -101,7 +101,7 @@ Seperti yang kita tahu karena banyak sekali informasi yang harus diterima, buatl
 - Make folder baratayuda in werkudara with this syntax : ``` mkdir /etc/bind/baratayuda ```
 - Make file baratayuda.abimanyu.I08.com in wekudara with this syntax :
   ``` nano /etc/bind/baratayuda/baratayuda.abimanyu.I08.com  ```
-<img src="./img/7a.png" width="500">
+<img src="./img/7.png" width="500">
 
 - Restart server with this syntax : ``` service bind9 restart ```
 - Ping www.baratayuda.abimanyu.I08.com in client Nakula and Sadewa
@@ -111,4 +111,6 @@ Untuk informasi yang lebih spesifik mengenai Ranjapan Baratayuda, buatlah subdom
 
 ### Explanation
 - Add the following subdomain in baratayuda.abimanyu.I08.com in werkudara
+<img src="./img/7.png" width="500">
+
 - Ping www.rjp.baratayuda.abimanyu.I08.com in client Nakula and Sadewa
