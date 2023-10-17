@@ -10,10 +10,13 @@ Yudhistira akan digunakan sebagai DNS Master, Werkudara sebagai DNS Slave, Arjun
 
 ### Explanation 
 - Make the topology based on the 4th picture in the Google Drive.
+<img src="./img/1a.png" width="500">
+
 - Make Yudhistira node as the DNS Master.
 - Make Werkudara as the DNS Slave.
 - Make Arjuna node as the Load Balancer that consist of several web servers which are Abimanyu, Prabakusuma, and Wisanggeni.
 - Ping google on each node to check wether it is already connected to Pandudewanata.
+<img src="./img/1b.png" width="500">
 
 ## Soal-2
 Buatlah website utama pada node arjuna dengan akses ke arjuna.yyy.com dengan alias www.arjuna.yyy.com dengan yyy merupakan kode kelompok.
@@ -22,6 +25,14 @@ Buatlah website utama pada node arjuna dengan akses ke arjuna.yyy.com dengan ali
 - Open the arjuna file in yudhistira with syntax :
   ``` nano /etc/bind/jarkom/arjuna.I08.com  ```
 - Fill it like below
+<img src="./img/2a.png" width="500">
+
+- Save the file
+- Open the local configuration file in yudhistira with syntax :
+  ``` nano /etc/bind/named.conf.local  ```
+- Fill it like below
+<img src="./img/2b.png" width="500">
+
 - Save the file
 - Ping www.arjuna.I08.com in client Nakula and Sadewa
 
@@ -32,8 +43,11 @@ Dengan cara yang sama seperti soal nomor 2, buatlah website utama dengan akses k
 - Open the abimanyu file in yudhistira with syntax :
   ``` nano /etc/bind/jarkom/abimanyu.I08.com ```
 - Fill it like below
+<img src="./img/3a.png" width="500">
+
 - Save the file
 - Ping www.abimanyu.I08.com in client Nakula and Sadewa
+<img src="./img/3b.png" width="500">
 
 ## Soal-4
 Kemudian, karena terdapat beberapa web yang harus di-deploy, buatlah subdomain parikesit.abimanyu.yyy.com yang diatur DNS-nya di Yudhistira dan mengarah ke Abimanyu.
@@ -42,8 +56,11 @@ Kemudian, karena terdapat beberapa web yang harus di-deploy, buatlah subdomain p
 - Open the abimanyu file in yudhistira with syntax :
   ``` nano /etc/bind/jarkom/abimanyu.I08.com ```
 - Fill it like below, insert parikesit subdomain in that file
+<img src="./img/3a.png" width="500">
+
 - Ping the parikesit subdomain in client Nakula and Sadewa with this syntax :
   ``` ping parikesit.abimanyu.I08.com -c 5 ```
+  <img src="./img/4.png" width="500">
 
 ## Soal-5
 Buat juga reverse domain untuk domain utama. (Abimanyu saja yang direverse)
@@ -54,6 +71,7 @@ Buat juga reverse domain untuk domain utama. (Abimanyu saja yang direverse)
 - Restart server with this syntax : ``` service bind9 restart ```
 - Ping reverse domain in client Nakula and Sadewa with this syntax :
   ``` host -t PTR 192.232.3.3  ```
+<img src="./img/5.png" width="500">
 
 ## Soal-6
 Agar dapat tetap dihubungi ketika DNS Server Yudhistira bermasalah, buat juga Werkudara sebagai DNS Slave untuk domain utama.
@@ -61,6 +79,8 @@ Agar dapat tetap dihubungi ketika DNS Server Yudhistira bermasalah, buat juga We
 ### Explanation
 - Open local configuration in werkudara with this syntax : ``` nano /etc/bind/named.conf.local  ```
 - Make werkudara as the DNS Slave domain
+<img src="./img/6.png" width="500">
+
 - Save the file
 - Restart server with this syntax : ``` service bind9 restart ```
 - Stop the bind9 in yudhistira with this syntax : ``` service bind9 stop ```
@@ -74,11 +94,15 @@ Seperti yang kita tahu karena banyak sekali informasi yang harus diterima, buatl
 - Add allow query and comment ``` dnssec-validation auto; ```
 - Restart server with this syntax : ``` service bind9 restart ```
 - Open the configuration options in werkudara with this syntax : ``` nano /etc/bind/named.conf.options ```
+<img src="./img/7b.png" width="500">
+
 - Add allow query and comment ``` dnssec-validation auto; ```
 - Restart server with this syntax : ``` service bind9 restart ```
 - Make folder baratayuda in werkudara with this syntax : ``` mkdir /etc/bind/baratayuda ```
 - Make file baratayuda.abimanyu.I08.com in wekudara with this syntax :
   ``` nano /etc/bind/baratayuda/baratayuda.abimanyu.I08.com  ```
+<img src="./img/7a.png" width="500">
+
 - Restart server with this syntax : ``` service bind9 restart ```
 - Ping www.baratayuda.abimanyu.I08.com in client Nakula and Sadewa
 
