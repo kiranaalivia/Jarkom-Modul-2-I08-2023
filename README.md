@@ -29,7 +29,6 @@ iface eth3 inet static
 
 ```
 
-**Switch 1**
 - **Client**
   - Nakula
   ```
@@ -66,7 +65,6 @@ iface eth3 inet static
   	gateway 192.232.1.1
   ```
 
-  **Switch 2**
 - **Load Balancer**
   - Arjuna
   ```
@@ -77,7 +75,6 @@ iface eth3 inet static
   	gateway 192.232.3.1
   ```
 
-**Switch 3**
 - **Web Server**
   - Prabukusuma
   ```
